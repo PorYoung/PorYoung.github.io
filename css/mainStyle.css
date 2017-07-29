@@ -1,0 +1,34 @@
+#list{
+	-webkit-padding-start: 0;
+	width: 80%;
+	margin: 10px auto;
+}
+
+#list li{
+	list-style-type: none;
+	min-height: 80px;
+	border-bottom: 1px dashed #ccc;
+	border-left: 1px dashed #CCC;
+	border-bottom-left-radius: 10px;
+	border-top-left-radius: 10px;
+	padding: 0 20px;
+}
+
+#list li a{
+	display: block;
+	text-decoration: none;
+	color: #686868;
+	text-align: left;
+	height: 30px;
+	font-size: 25px;
+}
+#list li span:nth-child(2){
+	font-size: 12px;
+}
+#list li span:nth-child(3){
+	font-size: 12px;
+	margin-left: 30px;
+}
+
+
+
