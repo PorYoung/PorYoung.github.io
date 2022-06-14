@@ -103,9 +103,8 @@ theme: argon
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://github.com/PorYoung/PorYoung.github.io
-  branch: [gh-pages]
-  message: [Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }}]
+  repo: git@github.com:PorYoung/PorYoung.github.io.git
+  branch: gh-pages
 
 # Search
 search:
