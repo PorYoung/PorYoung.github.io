@@ -15,15 +15,14 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  build:
+    build:
         runs-on: ubuntu-18.04
+        if: github.event.repository.owner.id == github.event.sender.id
         steps:
             - name: Checkout source
               uses: actions/checkout@v2
               with:
                   ref: hexo
-                  persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
-                  fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
             - name: Setup Node.js
               uses: actions/setup-node@v1
               with:
@@ -32,9 +31,13 @@ jobs:
               env:
                   ACTION_DEPLOY_KEY: ${{ secrets.HEXO_DEPLOY_KEY }}
               run: |
-                  git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-                  git config --local user.name "github-actions[bot]"
-                  git commit -m "Add changes" -a
+                  mkdir -p ~/.ssh/
+                  echo "$ACTION_DEPLOY_KEY" > ~/.ssh/id_rsa
+                  chmod 700 ~/.ssh
+                  chmod 600 ~/.ssh/id_rsa
+                  ssh-keyscan github.com >> ~/.ssh/known_hosts
+                  git config --global user.email "poryoung@outlook.com"
+                  git config --global user.name "PorYoung"
                   npm install hexo-cli -g
                   npm install
             - name: Deploy
