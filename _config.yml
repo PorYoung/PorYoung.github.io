@@ -9,7 +9,7 @@ description: 'Blogs of PorYoung'
 keywords: blog
 author: PorYoung
 language: zh-cn
-timezone: 'GMT+8'
+timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
