@@ -2,7 +2,7 @@
 title: "【转】配置Nginx做Node.js应用的反向代理 (HTTPS)"
 date: "2018-04-13"
 categories: 
-  - "notes-summary"
+  - "notes"
 tags: 
   - "nginx"
   - "node-js"

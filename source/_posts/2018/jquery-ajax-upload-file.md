@@ -2,7 +2,7 @@
 title: "Jquery Ajax Upload File (html5 FormData)"
 date: "2018-05-22"
 categories: 
-  - "notes-summary"
+  - "notes"
 tags: 
   - "ajax"
   - "jquery"

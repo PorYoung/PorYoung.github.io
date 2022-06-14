@@ -2,7 +2,7 @@
 title: "如何给阿里云ecs开启ipv6访问"
 date: "2019-10-08"
 categories: 
-  - "notes-summary"
+  - "notes"
 ---
 
 [原文地址](https://www.bobobk.com/377.html)

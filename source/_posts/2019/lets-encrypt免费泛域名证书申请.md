@@ -2,7 +2,7 @@
 title: "Let’s Encrypt免费泛域名证书申请"
 date: "2019-03-25"
 categories: 
-  - "notes-summary"
+  - "notes"
 tags: 
   - "https"
   - "lets-encrypt"

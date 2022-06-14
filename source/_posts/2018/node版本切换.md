@@ -2,7 +2,7 @@
 title: "Node版本切换"
 date: "2018-06-03"
 categories: 
-  - "notes-summary"
+  - "notes"
 tags: 
   - "node-js"
   - "notes"

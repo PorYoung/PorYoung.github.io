@@ -2,7 +2,7 @@
 title: "MySql分类统计"
 date: "2019-05-05"
 categories: 
-  - "notes-summary"
+  - "notes"
   - "temp"
 ---
 

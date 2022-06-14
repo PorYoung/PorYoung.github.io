@@ -2,7 +2,7 @@
 title: "VSCode配置Fortran环境"
 date: "2021-03-22"
 categories: 
-  - "notes-summary"
+  - "notes"
 tags: 
   - "fortran"
   - "vscode"

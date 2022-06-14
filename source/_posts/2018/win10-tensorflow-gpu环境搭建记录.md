@@ -2,7 +2,7 @@
 title: "win10 TensorFlow GPU环境搭建记录"
 date: "2018-10-17"
 categories: 
-  - "notes-summary"
+  - "notes"
 tags: 
   - "tensorflow"
 ---

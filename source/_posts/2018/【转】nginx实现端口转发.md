@@ -2,7 +2,7 @@
 title: "【转】Nginx实现端口转发"
 date: "2018-08-19"
 categories: 
-  - "notes-summary"
+  - "notes"
 tags: 
   - "https"
   - "nginx"

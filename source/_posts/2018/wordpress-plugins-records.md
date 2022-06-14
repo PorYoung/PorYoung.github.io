@@ -2,7 +2,7 @@
 title: "wordpress plugins records"
 date: "2018-02-09"
 categories: 
-  - "notes-summary"
+  - "notes"
 tags: 
   - "summary"
   - "wordpress"

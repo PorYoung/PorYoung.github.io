@@ -2,7 +2,7 @@
 title: "How to build MCloud"
 date: "2018-08-22"
 categories: 
-  - "notes-summary"
+  - "notes"
 tags: 
   - "mcloud"
 ---

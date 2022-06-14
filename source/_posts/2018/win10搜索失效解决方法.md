@@ -2,7 +2,7 @@
 title: "win10搜索失效解决方法"
 date: "2018-09-27"
 categories: 
-  - "notes-summary"
+  - "notes"
 tags: 
   - "tips"
   - "win10"

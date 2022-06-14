@@ -2,7 +2,7 @@
 title: "SSE：服务器发送事件"
 date: "2019-04-22"
 categories: 
-  - "notes-summary"
+  - "notes"
 tags: 
   - "http"
   - "sse"

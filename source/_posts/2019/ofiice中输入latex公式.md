@@ -2,7 +2,7 @@
 title: "Ofiice中输入LaTeX公式"
 date: "2019-04-11"
 categories: 
-  - "notes-summary"
+  - "notes"
 ---
 
 Ofiice已经支持直接输入LaTex公式，相应的设置方法可以参考官方文档。

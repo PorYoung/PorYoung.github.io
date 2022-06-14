@@ -2,7 +2,7 @@
 title: "AiiDA及aiida-quantumespresso基本介绍及使用"
 date: "2021-04-18"
 categories: 
-  - "notes-summary"
+  - "notes"
 tags: 
   - "aiida"
   - "materials-science"

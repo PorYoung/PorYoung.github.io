@@ -2,7 +2,7 @@
 title: "Ajax Packaged"
 date: "2018-02-14"
 categories: 
-  - "notes-summary"
+  - "notes"
 tags: 
   - "ajax"
   - "javascript"

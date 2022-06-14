@@ -2,7 +2,7 @@
 title: "JavaScript MD5 function"
 date: "2018-05-24"
 categories: 
-  - "notes-summary"
+  - "notes"
 tags: 
   - "crypto"
   - "javascript"

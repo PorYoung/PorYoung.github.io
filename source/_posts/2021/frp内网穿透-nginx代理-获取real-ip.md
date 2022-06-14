@@ -2,7 +2,7 @@
 title: "FRP内网穿透 + Nginx代理 + 获取Real IP"
 date: "2021-01-10"
 categories: 
-  - "notes-summary"
+  - "notes"
 tags: 
   - "frp"
   - "nginx"

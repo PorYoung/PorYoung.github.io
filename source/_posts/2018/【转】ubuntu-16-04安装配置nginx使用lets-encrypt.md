@@ -2,7 +2,7 @@
 title: "【转】Ubuntu 16.04安装配置Nginx使用Let's Encrypt"
 date: "2018-04-13"
 categories: 
-  - "notes-summary"
+  - "notes"
 tags: 
   - "https"
   - "nginx"

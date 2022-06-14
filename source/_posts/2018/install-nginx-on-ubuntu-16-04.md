@@ -2,7 +2,7 @@
 title: "Install Nginx On Ubuntu 16.04"
 date: "2018-04-13"
 categories: 
-  - "notes-summary"
+  - "notes"
 tags: 
   - "nginx"
   - "notes"

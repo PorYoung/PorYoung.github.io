@@ -2,7 +2,7 @@
 title: "微信小程序Notes"
 date: "2018-04-08"
 categories: 
-  - "notes-summary"
+  - "notes"
 tags: 
   - "wechat"
 ---
@@ -25,9 +25,9 @@ tags:
 - 触控事件触发顺序
     
 
-| 动作 | 触发顺序 |
-| --- | --- |
-| 单击 tap | touchStart -> tap -> touchEnd |
+| 动作           | 触发顺序                                   |
+| -------------- | ------------------------------------------ |
+| 单击 tap       | touchStart -> tap -> touchEnd              |
 | 长按 longPress | touchStart -> longPress -> tap -> touchEnd |
 
 **区别单击、双击、长按事件**
