@@ -17,12 +17,13 @@ on:
 jobs:
   build:
         runs-on: ubuntu-18.04
-        if: github.event.repository.owner.id == github.event.sender.id
         steps:
             - name: Checkout source
               uses: actions/checkout@v2
               with:
                   ref: hexo
+                  persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
+                  fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
             - name: Setup Node.js
               uses: actions/setup-node@v1
               with:
@@ -31,15 +32,9 @@ jobs:
               env:
                   ACTION_DEPLOY_KEY: ${{ secrets.HEXO_DEPLOY_KEY }}
               run: |
-                  git config --global user.name "GitHub Action"
-                  git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-                  if [[ ${GITHUB_REF} = refs/pull/*/merge ]]; then # pull request
-                    echo "::set-output name=SRC_BRANCH::${GITHUB_HEAD_REF}"
-                    echo "::set-output name=NO_PUSH::--no-push"
-                  elif [[ ${GITHUB_REF} = refs/heads/* ]]; then # branch, e.g. master, source etc
-                    echo "::set-output name=SRC_BRANCH::${GITHUB_REF#refs/heads/}"
-                  fi
-                  echo "::set-output name=DEPLOY_BRANCH::gh-pages"
+                  git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+                  git config --local user.name "github-actions[bot]"
+                  git commit -m "Add changes" -a
                   npm install hexo-cli -g
                   npm install
             - name: Deploy
