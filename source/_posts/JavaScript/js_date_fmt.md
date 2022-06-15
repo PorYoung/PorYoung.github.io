@@ -1,14 +1,15 @@
 ---
-title: "JS 复习笔记"
+title: "JS 日期格式化"
 date: "2022-06-15"
 categories: 
   - "JavaScript"
 tags:
   - JavaScript
   - notes
+  - snippets
 ---
 
-1. JS日期格式化转换方法
+## JS日期格式化转换方法
 
 ```javascript
 Date.prototype.format = function(fmt) { 
@@ -34,3 +35,7 @@ Date.prototype.format = function(fmt) {
 ```
 
 > [龙恩0707 JS日期格式化转换方法](https://www.cnblogs.com/tugenhua0707/p/3776808.html)
+
+## References
+
+1. [`Moment.js` 轻量级的JavaScript时间库](http://momentjs.cn/)
