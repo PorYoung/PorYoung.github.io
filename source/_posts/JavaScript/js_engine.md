@@ -12,7 +12,7 @@ JS 引擎加载脚本文件后：语法分析、预编译、解释执行。
 
 匿名函数不参与预编译，只有在解释执行阶段才会进行变量初始化。
 
-![](https://qinu.poryoung.cn/img/202206191534572.png)
+![JS Engine](https://qinu.poryoung.cn/img/202206191534572.png)
 
 ## JS 执行线程
 
@@ -32,6 +32,28 @@ JS 是单线程的是指永远只有 JS 引擎线程在执行 JS 脚本程序，
 ## JS 宏任务、微内核
 
 > [Tasks, microtasks, queues and schedules](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)
+
+## 内存管理
+
+### 内存泄漏
+
+#### 可能造成内存泄漏的原因
+
+![](https://qinu.poryoung.cn/img/202206202220645.png)
+
+1. 闭包的使用
+2. 全局变量的无意创建
+3. DOM 元素绑定事件未随 DOM 元素的移除而注销
+
+#### 内存泄漏排查
+
+> [内存泄露的排查手段](https://mitianyi.gitbook.io/frontend-interview-guide/javascript-basics/scope-and-closure#nei-cun-xie-lu-de-pai-cha-shou-duan)
+
+#### 内存泄漏的解决方案
+
+1. 使用严格模式，避免不经意间的全局变量泄露
+2. 关注 DOM 生命周期，在销毁阶段记得解绑相关事件，或者可以使用事件委托的手段统一处理事件，减少由于事件绑定带来的额外内存开销
+3. 避免过度使用闭包
 
 ### 引申
 

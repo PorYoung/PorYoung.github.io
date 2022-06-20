@@ -16,6 +16,89 @@ tags:
 
 闭包的主要作用：延伸变量的作用范围。
 
+**过度使用闭包会造成内存泄漏。**
+
+### 应用
+
+#### 模拟类私有属性
+
+```javascript
+// 模拟私有属性
+function getGeneratorFunc() {
+  var _name = "John";
+  var _age = 22;
+
+  return function () {
+    return {
+      getName: function () {
+        return _name;
+      },
+      getAge: function () {
+        return _age;
+      },
+    };
+  };
+}
+
+var obj = getGeneratorFunc()();
+obj.getName(); // John
+obj.getAge(); // 22
+obj._age; // undefined
+```
+
+#### 柯里化（currying）
+
+柯里化（currying），是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术。
+
+柯里化的优势之一就是**参数的复用**，它可以在传入参数的基础上生成另一个全新的函数，如函数`bind`方法的实现。
+
+```javascript
+// bind
+Function.prototype.myBind = function (context = window) {
+  if (typeof this !== "function") throw new Error("Error");
+  let selfFunc = this;
+  let args = [...arguments].slice(1);
+
+  return function F() {
+    // 因为返回了一个函数，可以 new F()，所以需要判断
+    if (this instanceof F) {
+      return new selfFunc(...args, arguments);
+    } else {
+      // bind 可以实现类似这样的代码 f.bind(obj, 1)(2)，所以需要将两边的参数拼接起来
+      return selfFunc.apply(context, args.concat(arguments));
+    }
+  };
+};
+
+// Example
+function typeOf(value) {
+  return function (obj) {
+    const toString = Object.prototype.toString;
+    const map = {
+      "[object Boolean]": "boolean",
+      "[object Number]": "number",
+      "[object String]": "string",
+      "[object Function]": "function",
+      "[object Array]": "array",
+      "[object Date]": "date",
+      "[object RegExp]": "regExp",
+      "[object Undefined]": "undefined",
+      "[object Null]": "null",
+      "[object Object]": "object",
+    };
+    return map[toString.call(obj)] === value;
+  };
+}
+
+var isNumber = typeOf("number");
+var isFunction = typeOf("function");
+var isRegExp = typeOf("regExp");
+
+isNumber(0); // => true
+isFunction(function () {}); // true
+isRegExp({}); // => false
+```
+
 ## 作用域
 
 JS 中使用的是词法作用域（lexical scopes），也即静态作用域，函数的作用域在定义的时候已经确认，和执行的位置无关。动态作用域的语言如`bash`，在下例中会输出 2。
@@ -24,12 +107,12 @@ JS 中使用的是词法作用域（lexical scopes），也即静态作用域，
 var value = 1;
 
 function foo() {
-	console.log(value); // 1
+  console.log(value); // 1
 }
 
 function bar() {
-	var value = 2;
-	foo();
+  var value = 2;
+  foo();
 }
 
 bar();
@@ -67,9 +150,9 @@ AMD 采用异步方式加载模块，模块的加载不影响它后面语句的�
 ```javascript
 // AMD
 define(["./a", "./b"], function (a, b) {
-	// 加载模块完毕可以使用
-	a.do();
-	b.do();
+  // 加载模块完毕可以使用
+  a.do();
+  b.do();
 });
 ```
 
@@ -82,15 +165,15 @@ CMD 可以使用 `require` 同步加载依赖，也可以使用 `require.async` 
 ```javascript
 // CMD
 define(function (require, exports, module) {
-	// 加载模块
-	// 可以把 require 写在函数体的任意地方实现延迟加载
-	var a = require("./a");
-	a.doSomething();
+  // 加载模块
+  // 可以把 require 写在函数体的任意地方实现延迟加载
+  var a = require("./a");
+  a.doSomething();
 
-	// 也可以使用 require.async 来延迟加载
-	require.async("./b", function (b) {
-		b.doSomething();
-	});
+  // 也可以使用 require.async 来延迟加载
+  require.async("./b", function (b) {
+    b.doSomething();
+  });
 });
 ```
 
@@ -106,30 +189,30 @@ define(function (require, exports, module) {
 ```javascript
 // UMD
 (function (root, factory) {
-	if (typeof define === "function" && define.amd) {
-		// AMD
-		define(["jquery"], factory);
-	} else if (typeof exports === "object") {
-		// Node, CommonJS-like
-		module.exports = factory(require("jquery"));
-	} else {
-		// Browser globals (root is window)
-		root.returnExports = factory(root.jQuery);
-	}
+  if (typeof define === "function" && define.amd) {
+    // AMD
+    define(["jquery"], factory);
+  } else if (typeof exports === "object") {
+    // Node, CommonJS-like
+    module.exports = factory(require("jquery"));
+  } else {
+    // Browser globals (root is window)
+    root.returnExports = factory(root.jQuery);
+  }
 })(this, function ($) {
-	//    methods
-	function myFunc() {}
+  //    methods
+  function myFunc() {}
 
-	//    exposed public method
-	return myFunc;
+  //    exposed public method
+  return myFunc;
 });
 ```
 
 #### CommonJS
 
-> CommonJS 是的 NodeJS 所使用的一种服务端的模块化规范，它将每一个文件定义为一个 module ，模块必须通过 module.exports 导出对外的变量或接口，通过 require() 来导入其他模块的输出到当前模块作用域中。
+CommonJS 是的 NodeJS 所使用的一种服务端的模块化规范，它将每一个文件定义为一个 module ，模块必须通过 module.exports 导出对外的变量或接口，通过 require() 来导入其他模块的输出到当前模块作用域中。
 
-> 如果`require`的路径不以`/`或`./`开头，会依次搜索`Node`的核心模块，各级目录下的`node_modules`目录，若未找到，则会自动添加文件后缀`.js`、`.json`、`.node`，再次寻找。
+如果`require`的路径不以`/`或`./`开头，会依次搜索`Node`的核心模块，各级目录下的`node_modules`目录，若未找到，则会自动添加文件后缀`.js`、`.json`、`.node`，再次寻找。
 
 #### ES6 ESModule
 
@@ -138,31 +221,56 @@ define(function (require, exports, module) {
 
 #### CommonJs vs. ESModule
 
+> [Node.js module system](http://nodejs.cn/api/packages.html#determining-module-system)
+
 1. CommonJS 模块输出的是一个值的拷贝，ESModule 输出的是值的引用。CommonJS 输出的是值的拷贝，也就是说一旦输出，模块内部的变化就影响不到这个值。
 
-<details>
-<summary>Example</summary>
-
 ```javascript
-// lib.js
+/*
+ * CommonJS
+ */
+// mod.js
 let counter = 3;
 function incCounter() {
-	counter++;
+  counter++;
 }
 module.exports = {
-	counter,
-  get counterChanged: {
-        return counter;
-    },
-	incCounter,
+  getCounter: () => counter,
+  counter,
+  incCounter,
 };
 
 // main.js
-let mod = require("./lib");
+let mod = require("./mod");
 
 console.log(mod.counter); // 3
 mod.incCounter();
-console.log(mod.counter); // 4
+console.log(mod.counter); // 3
+console.log(mod.getCounter()); // 4
+
+/*
+ * ESModule
+ */
+// mod.js
+let counter = 3;
+function incCounter() {
+  counter++;
+}
+function getCounter() {
+  return counter;
+}
+export { counter, incCounter, getCounter };
+
+// main.js
+import { counter, getCounter, incCounter } from "./mod.js";
+
+console.log(counter); // 3
+incCounter();
+console.log(counter); // 4
+console.log(getCounter()); // 4
 ```
 
-</details>
+> ESModule 的模块化是静态的，和 CommonJS 不同，ESModule 模块不是对象，而是通过 export 命令显示输出的指定代码的片段，再通过 import 命令将代码命令输入。也就是说在编译阶段就需要确定模块之间的依赖关系，这一点不同于 AMD / CMD / CommonJS ，这三者都是在运行时确定模块间的依赖关系的。
+
+2. ES6 的模块自动采用严格模式
+3. ESModule 导出的模块是只读的，不能变更，否则报错，如修改`counter`，会报：`Uncaught TypeError: Assignment to constant variable. at main.js`

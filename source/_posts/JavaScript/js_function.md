@@ -45,9 +45,6 @@ tags:
 1. 函数声明提升优先于变量声明
 2. 函数初始化也会提升
 
-<details>
-<summary>Example</summary>
-
 ```javascript {cmd="node"}
 console.log(a); // [Function: a]
 var a = 1;
@@ -65,8 +62,6 @@ function b(a) {
 b(3);
 ```
 
-</details>
-
 ## `this` 指向
 
 1. 以函数的形式（包括普通函数、定时器函数、立即执行函数）调用时，this 的指向永远都是 window。
@@ -80,9 +75,6 @@ b(3);
 5. 使用 call 和 apply 调用时，this 指向指定的那个对象
 
 6. 箭头函数中 this 的指向会继承外层函数调用的 this 绑定（无论 this 绑定到什么）
-
-<details>
-<summary>Example</summary>
 
 ```javascript {cmd="node"}
 var name = "window";
@@ -104,8 +96,6 @@ function func() {
 func() || obj.func() || obj.arrowFunc();
 ```
 
-</details>
-
 ## `call`, `apply`, `bind`
 
 ### `call`
@@ -114,9 +104,6 @@ func() || obj.func() || obj.arrowFunc();
 
 1. 调用一个函数，同时可以改变这个函数内部的 this 指向
 2. 实现继承
-
-<details>
-<summary>Example</summary>
 
 ```javascript
 function Father(myName, myAge) {
@@ -128,8 +115,6 @@ function Son(myName, myAge) {
 	Father.call(this, myName, myAge);
 }
 ```
-
-</details>
 
 ### `apply`
 

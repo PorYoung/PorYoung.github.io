@@ -16,3 +16,9 @@ function foo() {
 	var a = (b = 100); // a和b的区别
 }
 ```
+
+2. `defer` and `async`
+
+   The best thing to do to speed up your page loading when using scripts is to put them in the head, and add a defer attribute to your script tag.
+
+   > [Efficiently load JavaScript with defer and async](https://flaviocopes.com/javascript-async-defer/)
