@@ -1,6 +1,6 @@
 ---
-title: JS 设计模式
-date: 2022-06-20 20:44:47
+title: "JS 设计模式"
+date: "2022-06-20 20:44:47"
 categories:
   - "JavaScript"
 tags:
