@@ -2,11 +2,11 @@
 title: "JS Function"
 date: "2022-06-15"
 categories:
-  - "JavaScript"
+  - "FrontEnd"
 tags:
-  - JavaScript
-  - notes
-  - snippets
+  - "JavaScript"
+  - "notes"
+  - "snippets"
 ---
 
 ## 函数声明的方式
@@ -53,11 +53,11 @@ function a() {}
 console.log(a); // 1
 
 function b(a) {
-	console.log(a); // [Function: a]
-	var a = 2;
-	console.log(a); // 2
-	function a() {}
-	console.log(a); // 2
+  console.log(a); // [Function: a]
+  var a = 2;
+  console.log(a); // 2
+  function a() {}
+  console.log(a); // 2
 }
 b(3);
 ```
@@ -79,17 +79,17 @@ b(3);
 ```javascript {cmd="node"}
 var name = "window";
 var obj = {
-	name: "obj",
-	arrowFunc: () => {
-		console.log(this, this.name);
-	},
-	func: function () {
-		console.log(this, this.name);
-	},
+  name: "obj",
+  arrowFunc: () => {
+    console.log(this, this.name);
+  },
+  func: function () {
+    console.log(this, this.name);
+  },
 };
 
 function func() {
-	console.log(this, this.name);
+  console.log(this, this.name);
 }
 
 // Window "window" || Object "obj" || Window "window"
@@ -107,12 +107,12 @@ func() || obj.func() || obj.arrowFunc();
 
 ```javascript
 function Father(myName, myAge) {
-	this.name = myName;
-	this.age = myAge;
+  this.name = myName;
+  this.age = myAge;
 }
 
 function Son(myName, myAge) {
-	Father.call(this, myName, myAge);
+  Father.call(this, myName, myAge);
 }
 ```
 
