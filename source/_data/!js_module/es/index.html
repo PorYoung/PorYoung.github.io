@@ -6,11 +6,64 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script type="module" src="./main.js"></script>
+    <!-- <script type="module" src="./main.js"></script> -->
+    <script>
+        window.onload = function () {
+            let toTop = document.querySelector("#toTop");
+            function animatedScrollTo(event, target = 0) {
+                let timer = null;
+                let el = document.documentElement
+                target = target < 0 ? 0 : target;
+                target = target > el.scrollHeight ? el.scrollHeight : target;
+
+                let step = (target - el.scrollTop) / 10;
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+
+                function scrollAnimate() {
+                    timer && cancelAnimationFrame(timer);
+                    Math.abs(target - el.scrollTop) < Math.abs(step) ? el.scrollTo(0, target) : el.scrollTo(0, el.scrollTop + step);
+
+                    ![el.scrollTop, Math.floor(el.scrollTop), Math.ceil(el.scrollTop)].includes(target) && (timer = requestAnimationFrame(scrollAnimate));
+
+                }
+                timer = requestAnimationFrame(scrollAnimate);
+            }
+            toTop.onclick = animatedScrollTo;
+            let input = document.querySelector("#input");
+
+            let inputChangeHandle = function (fn, delay) {
+                let timer = null;
+                return function () {
+                    timer && clearTimeout(timer);
+                    timer = setTimeout(fn.bind(this, ...arguments), delay);
+
+                }
+            }
+            input.oninput = inputChangeHandle(function (e) {
+                e && e.target && console.log(parseInt(e.target.value))
+            }, 200);
+        }
+    </script>
+    <style>
+        #toTop {
+            width: 50px;
+            height: 50px;
+            position: fixed;
+            bottom: 8px;
+            right: 8px;
+        }
+    </style>
 </head>
 
 <body>
-
+    <div>
+        <label for="input">Input denounce:</label>
+        <input id="input">
+    </div>
+    <div id="panel" style="width: 300px;height: 2800px;background-color: aquamarine;">
+        div
+    </div>
+    <div id="toTop">Top</div>
 </body>
 
 </html>
