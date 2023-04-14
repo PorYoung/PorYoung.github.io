@@ -2,10 +2,10 @@
 title: "JS Engine"
 date: "2022-06-19 14:52:08"
 categories:
-  - "JavaScript"
+  - "FrontEnd"
 tags:
-  - JavaScript
-  - notes
+  - "JavaScript"
+  - "notes"
 ---
 
 JS 引擎加载脚本文件后：语法分析、预编译、解释执行。
