@@ -2,11 +2,11 @@
 title: "JS Tips"
 date: "2022-06-19"
 categories:
-  - "JavaScript"
+  - "FrontEnd"
 tags:
-  - JavaScript
-  - notes
-  - snippets
+  - "JavaScript"
+  - "notes"
+  - "snippets"
 ---
 
 ## 未声明赋值变量

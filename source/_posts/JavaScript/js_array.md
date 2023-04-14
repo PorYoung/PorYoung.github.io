@@ -2,11 +2,11 @@
 title: "JS 数组"
 date: "2022-06-15"
 categories:
-  - "JavaScript"
+  - "FrontEnd"
 tags:
-  - JavaScript
-  - notes
-  - snippets
+  - "JavaScript"
+  - "notes"
+  - "snippets"
 ---
 
 ## Fundamental

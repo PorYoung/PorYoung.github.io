@@ -2,6 +2,8 @@
 title: "Spring Cloud Gateway"
 date: "2022-06-15"
 categories:
+  - "BackEnd"
+tags:
   - "Spring Cloud"
   - "Spring Cloud Gateway"
 ---

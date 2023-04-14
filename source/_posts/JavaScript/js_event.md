@@ -2,10 +2,10 @@
 title: "JS Events"
 date: "2022-06-28 19:05:26"
 categories:
-  - "JavaScript"
+  - "FrontEnd"
 tags:
-  - JavaScript
-  - notes
+  - "JavaScript"
+  - "notes"
 ---
 
 ## 事件流

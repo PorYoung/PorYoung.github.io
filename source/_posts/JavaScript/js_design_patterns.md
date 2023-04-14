@@ -2,10 +2,10 @@
 title: "JS 设计模式"
 date: "2022-06-20 20:44:47"
 categories:
-  - "JavaScript"
+  - "FrontEnd"
 tags:
-  - JavaScript
-  - notes
+  - "JavaScript"
+  - "notes"
 ---
 
 ## 单例模式

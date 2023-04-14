@@ -2,11 +2,11 @@
 title: "JS 面向对象编程"
 date: "2022-06-20 20:44:47"
 categories:
-  - "JavaScript"
+  - "FrontEnd"
 tags:
-  - JavaScript
-  - OOP
-  - notes
+  - "JavaScript"
+  - "OOP"
+  - "notes"
 ---
 
 ## 对象创建
